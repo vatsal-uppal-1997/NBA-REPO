@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Teams from "./components/Teams";
+import Games from "./components/Games";
 import Typography from '@material-ui/core/Typography';
 import { Toolbar, Grid, withStyles, Tabs, Tab } from '@material-ui/core';
 
@@ -33,7 +34,7 @@ function App(props) {
         </Grid>
       </Toolbar>
       <Grid container justify="center" spacing={40} style={{marginTop:"5rem"}}>
-        <Grid item xs={12} lg={8} md={10}>
+        <Grid item xs={12} lg={9} md={10}>
           <Tabs
             value={currentTab}
             onChange={handleTabChange}
@@ -45,8 +46,10 @@ function App(props) {
             <Tab label="NBA Games" classes={{ selected: classes.tabSelected }} />
           </Tabs>
         </Grid>
-        <Grid item xs={12} lg={8} md={10}>
-          <Teams/>
+        <Grid item xs={12} lg={9} md={10}>
+          {
+            currentTab === 0?<Teams></Teams>:<Games></Games>
+          }
         </Grid>
       </Grid>
     </div>

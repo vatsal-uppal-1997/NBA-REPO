@@ -4,7 +4,7 @@ import { Paper, Grid, Typography, Tooltip } from '@material-ui/core';
 
 function Loading() {
     return (
-        <Grid item xs={3} style={{ margin: "0 auto", textAlign: "center" }}>
+        <Grid item lg={3} md={4} xs={12} style={{ margin: "0 auto", textAlign: "center" }}>
             <Typography variant="h2">
                 Loading
             </Typography>
@@ -25,7 +25,7 @@ function Teams() {
                         <Loading /> :
                         data.map((item, idx) => {
                             return (
-                                <Grid item xs={3} key={idx}>
+                                <Grid item md={4} lg={3} xs={12} key={idx}>
                                     <Tooltip title={
                                         <React.Fragment>
                                             <p>{item.full_name} {item.abbreviation}</p>
