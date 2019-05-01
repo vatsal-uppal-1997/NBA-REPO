@@ -29,14 +29,16 @@ function Games() {
     });
     const [page, setPage] = useState(1);
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    function handleNext() {
-        setPage(page + 1);
+    function handleNext(e) {
+        e.stopPropagation();
+        setPage((page+1));
         setLoading(true);
         fetchData(page, (data) => {setData(data); setLoading(false)});
     }
-    function handlePrevious() {
+    function handlePrevious(e) {
+        e.stopPropagation();
         if (page > 1) {
-            setPage(page - 1);
+            setPage((page-1));
             setLoading(true);
             fetchData(page, (data) => {setData(data); setLoading(false)});
         }

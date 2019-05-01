@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Teams from "./components/Teams";
 import Games from "./components/Games";
 import Typography from '@material-ui/core/Typography';
-import { Toolbar, Grid, withStyles, Tabs, Tab } from '@material-ui/core';
+import { Toolbar, Grid, withStyles, Tabs, Tab, Paper } from '@material-ui/core';
 
 
 const style = {
@@ -35,6 +35,7 @@ function App(props) {
       </Toolbar>
       <Grid container justify="center" spacing={40} style={{marginTop:"5rem"}}>
         <Grid item xs={12} lg={9} md={10}>
+          <Paper>
           <Tabs
             value={currentTab}
             onChange={handleTabChange}
@@ -45,6 +46,7 @@ function App(props) {
             <Tab label="NBA Teams" classes={{ selected: classes.tabSelected }} />
             <Tab label="NBA Games" classes={{ selected: classes.tabSelected }} />
           </Tabs>
+          </Paper>
         </Grid>
         <Grid item xs={12} lg={9} md={10}>
           {

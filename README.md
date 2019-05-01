@@ -1,3 +1,8 @@
+__Author: Vatsal Uppal__
+__ID: 1611981409__
+
+__This projects uses React Hooks 🎣__
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
