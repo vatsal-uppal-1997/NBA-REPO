@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Teams from "./components/Teams";
+import Typography from '@material-ui/core/Typography';
+import { Toolbar, Grid, withStyles, Tabs, Tab } from '@material-ui/core';
 
-function App() {
+
+const style = {
+  heading: {
+    width: "100%",
+    textAlign: "center",
+    marginTop: "5rem",
+    color: "#f16d32"
+  },
+  tabSelected: {
+    background: "#f16d32",
+    color: "white"
+  }
+};
+
+function App(props) {
+  const { classes } = props;
+  const [currentTab, setCurrentTab] = useState(0);
+  function handleTabChange(e, val) {
+    setCurrentTab(val);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Toolbar>
+        <Grid container justify="center" className={classes.heading}>
+          <Typography variant="h3" color="inherit">
+            NBA REPO
+          </Typography>
+        </Grid>
+      </Toolbar>
+      <Grid container justify="center" spacing={40} style={{marginTop:"5rem"}}>
+        <Grid item xs={12} lg={8} md={10}>
+          <Tabs
+            value={currentTab}
+            onChange={handleTabChange}
+            variant="fullWidth"
+            centered
+            style={{ width: "100%" }}
+          >
+            <Tab label="NBA Teams" classes={{ selected: classes.tabSelected }} />
+            <Tab label="NBA Games" classes={{ selected: classes.tabSelected }} />
+          </Tabs>
+        </Grid>
+        <Grid item xs={12} lg={8} md={10}>
+          <Teams/>
+        </Grid>
+      </Grid>
     </div>
   );
 }
 
-export default App;
+export default withStyles(style)(App);
