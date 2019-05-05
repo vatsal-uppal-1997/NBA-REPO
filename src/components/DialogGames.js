@@ -39,7 +39,7 @@ function DialogGames(props) {
                         <p><b>City</b>: {data.visitor_team.city}</p>
                         <p><b>Conference</b>: {data.visitor_team.conference}</p>
                         <p><b>Division</b>: {data.visitor_team.division}</p>
-                        <p><b>Home Team Score</b>: {data.visitor_team_score}</p>
+                        <p><b>Visitor Team Score</b>: {data.visitor_team_score}</p>
                     </Grid>
                 </Grid>
                 <Grid container justify="center">
